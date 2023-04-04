@@ -1,0 +1,31 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyManager : MonoBehaviour
+{
+	[SerializeField] Transform m_parentEnemyPositions;
+
+	private List<Transform> m_enemyPositons = new();
+	// Start is called before the first frame update
+	void Start()
+	{
+		InitEnemyPositions();
+	}
+
+	private void InitEnemyPositions()
+	{
+		foreach (Transform pos in m_parentEnemyPositions) {
+			m_enemyPositons.Add(pos);
+		}
+
+		print(m_enemyPositons);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+}
