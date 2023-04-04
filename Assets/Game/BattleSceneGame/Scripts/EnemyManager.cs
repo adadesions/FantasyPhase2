@@ -12,10 +12,11 @@ namespace Jrpg.BattleScene
 		[SerializeField] List<GameObject> m_monstersAndPosition;
 
 		private List<Transform> m_enemyPositions = new();
+		private List<GameObject> m_enemyInScene = new();
 
 		public List<GameObject> MonstersAndPosition { get => m_monstersAndPosition; set => m_monstersAndPosition = value; }
 		public static EnemyManager Instance { get => m_instance; set => m_instance = value; }
-
+		public List<GameObject> EnemyInScene { get => m_enemyInScene; set => m_enemyInScene = value; }
 
 		private void Awake()
 		{
@@ -37,10 +38,12 @@ namespace Jrpg.BattleScene
 		private void SpawnEnemies()
 		{
 			for (int i = 0; i < MonstersAndPosition.Count; i++) {
-				Instantiate(
+				GameObject enemyClone = Instantiate(
 					MonstersAndPosition[i],
 					m_enemyPositions[i].localPosition,
 					Quaternion.identity);
+
+				m_enemyInScene.Add(enemyClone);
 			}
 		}
 

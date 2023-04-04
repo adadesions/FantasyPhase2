@@ -17,6 +17,12 @@ namespace Jrpg.BattleScene
 		// Agility 0-100
 		[SerializeField] float m_agility = 10;
 
+		private bool m_isDead = false;
+
+		public float CurHealth { get => m_curHealth; set => m_curHealth = value; }
+		public float MaxHealth { get => m_maxHealth; set => m_maxHealth = value; }
+		public bool IsDead { get => m_isDead; set => m_isDead = value; }
+
 		// Start is called before the first frame update
 		void Start()
 		{
@@ -34,13 +40,16 @@ namespace Jrpg.BattleScene
 			m_curHealth -= damage;
 
 			if (m_curHealth <= 0) {
+				m_curHealth = 0;
 				OnDead();
 			}
 		}
 
 		private void OnDead()
 		{
-			Destroy(gameObject);
+			m_isDead = true;
+			gameObject.SetActive(false);
+			//Destroy(gameObject);
 		}
 	}
 }
