@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerManager : MonoBehaviour
+{
+	private static PlayerManager instance;
+	[SerializeField] Transform parentPlayerPositions;
+	[SerializeField] List<GameObject> playerAndPosition;
+	private List<Transform> playerPositions = new();
+	private List<GameObject> playersInScene = new();
+
+	public List<GameObject> PlayerAndPosition { get => playerAndPosition; set => playerAndPosition = value; }
+	public static PlayerManager Instance { get => instance; set => instance = value; }
+	public List<GameObject> PlayersInScene { get => playersInScene; set => playersInScene = value; }
+
+	private void Awake()
+	{
+		if (instance != null && instance != this) {
+			Destroy(this);
+			return;
+		}
+
+		instance = this;
+	}
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		InitPlayerPositions();
+		SpawnPlayers();
+	}
+
+	private void SpawnPlayers()
+	{
+		for (int i = 0; i < PlayerAndPosition.Count; i++) {
+			GameObject playerClone = Instantiate(
+				PlayerAndPosition[i],
+				playerPositions[i].localPosition,
+				Quaternion.identity);
+
+			playersInScene.Add(playerClone);
+		}
+	}
+
+	private void InitPlayerPositions()
+	{
+		foreach (Transform pos in parentPlayerPositions) {
+			playerPositions.Add(pos);
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+}

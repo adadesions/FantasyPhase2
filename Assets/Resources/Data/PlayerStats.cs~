@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "New Player Stats", menuName = "Player/Stats")]
+public class PlayerStats : ScriptableObject
+{
+	public string playerName;
+	public int health;
+	public int maxHealth;
+	public int armor;
+	public int damage;
+	public int level;
+	public int experience;
+}
+

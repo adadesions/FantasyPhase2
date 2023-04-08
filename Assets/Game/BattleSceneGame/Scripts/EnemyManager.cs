@@ -40,9 +40,9 @@ namespace Jrpg.BattleScene
 			for (int i = 0; i < MonstersAndPosition.Count; i++) {
 				GameObject enemyClone = Instantiate(
 					MonstersAndPosition[i],
-					m_enemyPositions[i].localPosition,
+					m_enemyPositions[i].position,
 					Quaternion.identity);
-
+				enemyClone.transform.SetParent(m_parentEnemyPositions);
 				m_enemyInScene.Add(enemyClone);
 			}
 		}
