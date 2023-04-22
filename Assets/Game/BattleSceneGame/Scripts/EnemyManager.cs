@@ -13,6 +13,7 @@ namespace Jrpg.BattleScene
 
 		private List<Transform> m_enemyPositions = new();
 		private List<GameObject> m_enemyInScene = new();
+		private Dictionary<string, GameObject> m_enemyLookupTable = new();
 
 		public List<GameObject> MonstersAndPosition { get => m_monstersAndPosition; set => m_monstersAndPosition = value; }
 		public static EnemyManager Instance { get => m_instance; set => m_instance = value; }
@@ -33,6 +34,7 @@ namespace Jrpg.BattleScene
 		{
 			InitEnemyPositions();
 			SpawnEnemies();
+			TurnManager.Instance.OnAddedCharacters(m_enemyLookupTable);
 		}
 
 		private void SpawnEnemies()
@@ -44,6 +46,11 @@ namespace Jrpg.BattleScene
 					Quaternion.identity);
 				enemyClone.transform.SetParent(m_parentEnemyPositions);
 				m_enemyInScene.Add(enemyClone);
+
+				// Add to lookup table with UUID
+				System.Random random = new System.Random();
+				string uuid = random.Next(0x1000, 0x10000).ToString("X4");
+				m_enemyLookupTable.Add(uuid, enemyClone);
 			}
 		}
 

@@ -12,15 +12,17 @@ namespace Jrpg.BattleScene
 		[SerializeField] List<GameObject> m_playerAndPosition;
 		[SerializeField] List<PlayerStats> m_playerStatsList;
 
-		private List<Transform> playerPositions = new();
-		private List<GameObject> playersInScene = new();
+		private List<Transform> m_playerPositions = new();
+		private List<GameObject> m_playersInScene = new();
 		private int m_numberOfPlayers = 0;
+		private Dictionary<string, GameObject> m_playerLookupTable = new();
 
 		public List<GameObject> PlayerAndPosition { get => m_playerAndPosition; set => m_playerAndPosition = value; }
 		public static PlayerManager Instance { get => m_instance; set => m_instance = value; }
-		public List<GameObject> PlayersInScene { get => playersInScene; set => playersInScene = value; }
+		public List<GameObject> PlayersInScene { get => m_playersInScene; set => m_playersInScene = value; }
 		public List<PlayerStats> PlayerStatsList { get => m_playerStatsList; set => m_playerStatsList = value; }
 		public int NumberOfPlayers { get => m_numberOfPlayers; set => m_numberOfPlayers = value; }
+		public Dictionary<string, GameObject> PlayerLookupTable { get => m_playerLookupTable; set => m_playerLookupTable = value; }
 
 		private void Awake()
 		{
@@ -37,6 +39,7 @@ namespace Jrpg.BattleScene
 		void Start()
 		{
 			SpawnPlayers();
+			TurnManager.Instance.OnAddedCharacters(m_playerLookupTable);
 		}
 
 		private void Init()
@@ -50,19 +53,24 @@ namespace Jrpg.BattleScene
 			for (int i = 0; i < PlayerAndPosition.Count; i++) {
 				GameObject playerClone = Instantiate(
 					PlayerAndPosition[i],
-					playerPositions[i].position,
+					m_playerPositions[i].position,
 					Quaternion.identity);
 
 				playerClone.transform.SetParent(m_parentPlayerPositions);
 				playerClone.name = m_playerStatsList[i].playerName;
-				playersInScene.Add(playerClone);
+				m_playersInScene.Add(playerClone);
+
+				// Add to lookup table with UUID
+				System.Random random = new System.Random();
+				string uuid = random.Next(0x1000, 0x10000).ToString("X4");
+				m_playerLookupTable.Add(uuid, playerClone);
 			}
 		}
 
 		private void InitPlayerPositions()
 		{
 			foreach (Transform pos in m_parentPlayerPositions) {
-				playerPositions.Add(pos);
+				m_playerPositions.Add(pos);
 			}
 		}
 
