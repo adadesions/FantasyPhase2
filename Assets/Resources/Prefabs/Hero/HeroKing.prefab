@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8554936558601221900}
   - component: {fileID: 8554936558601221901}
   - component: {fileID: 8554936558601221938}
+  - component: {fileID: 1450246532924968769}
   m_Layer: 0
   m_Name: HeroKing
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,3 +106,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1450246532924968769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554936558601221939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35c89ff8ec86427babea5687f56b70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerStats: {fileID: 11400000, guid: 8937400f498a8456997abcfddc4ae0af, type: 2}

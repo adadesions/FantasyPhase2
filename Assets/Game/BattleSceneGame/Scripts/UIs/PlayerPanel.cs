@@ -40,16 +40,16 @@ namespace Jrpg.BattleScene
 				TextMeshProUGUI textGUI = child.GetComponent<TextMeshProUGUI>();
 				switch (child.name) {
 					case "NameLabel":
-						textGUI.text = stats.playerName;
+						textGUI.text = stats.PlayerName;
 						break;
 					case "HPLabel":
-						textGUI.text = string.Format("{0} / {1}", stats.health, stats.maxHealth);
+						textGUI.text = string.Format("{0} / {1}", stats.Health, stats.MaxHealth);
 						break;
 					case "MPLabel":
-						textGUI.text = string.Format("{0} / {1}", stats.mp, stats.maxMP);
+						textGUI.text = string.Format("{0} / {1}", stats.MP, stats.MaxMP);
 						break;
 					case "StaminaLabel":
-						child.GetComponent<Image>().fillAmount = stats.stamina;
+						child.GetComponent<Image>().fillAmount = stats.Stamina;
 						break;
 				}
 			}

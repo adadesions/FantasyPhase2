@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a558ada18924d399d4156d0cffac27, type: 3}
-  m_Name: Hero
+  m_Script: {fileID: 11500000, guid: f03e2b823087644aa910a4d3a809ce8f, type: 3}
+  m_Name: Undead_Enemy
   m_EditorClassIdentifier: 
-  Health: 100
-  MaxHealth: 100
+  Health: 150
+  MaxHealth: 150
   MP: 100
   MaxMP: 100
   Stamina: 50
-  Armor: 10
-  Damage: 30
-  Level: 1
-  Agility: 25
-  XP: 0
-  PlayerName: Ada De Sions
+  Armor: 15
+  Damage: 15
+  Level: 5
+  Agility: 20
+  EnemyName: The Knight
+  XP: 100

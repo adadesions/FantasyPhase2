@@ -57,7 +57,7 @@ namespace Jrpg.BattleScene
 					Quaternion.identity);
 
 				playerClone.transform.SetParent(m_parentPlayerPositions);
-				playerClone.name = m_playerStatsList[i].playerName;
+				playerClone.name = m_playerStatsList[i].PlayerName;
 				m_playersInScene.Add(playerClone);
 
 				// Add to lookup table with UUID

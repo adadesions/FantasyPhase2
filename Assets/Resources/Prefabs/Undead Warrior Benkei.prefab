@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1853339167433823962}
   m_Layer: 0
   m_Name: Undead Warrior Benkei
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3799faccbfe84ca7936678bcda1063f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyStats: {fileID: 11400000, guid: 23ccf99bd0c724ca2ac45873144474fc, type: 2}
+  m_enemyStats: {fileID: 11400000, guid: dbaccd1ba6550429da24a547d09b30de, type: 2}
