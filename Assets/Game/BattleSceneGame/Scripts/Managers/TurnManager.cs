@@ -51,6 +51,11 @@ namespace Jrpg.BattleScene
 			NextTurnChecking();
 		}
 
+		public void NextQueue()
+		{
+			m_currentQueueIdx++;
+		}
+
 		private void PointToCurrentQueue()
 		{
 			ITurner controller = m_chractersInScene[m_currentQueueIdx].Value.GetComponent<ITurner>();
@@ -93,6 +98,7 @@ namespace Jrpg.BattleScene
 
 			latestCharacterCount = m_chractersInScene.Count;
 			m_isNextTurn = false;
+			m_currentQueueIdx = 0;
 		}
 
 		private static Comparison<KeyValuePair<string, GameObject>> SortedByAgi()

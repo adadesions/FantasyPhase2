@@ -1,0 +1,48 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Jrpg.BattleScene
+{
+	public class EnemyAI : MonoBehaviour
+	{
+		[SerializeField] IHealth m_target;
+
+		private EnemyController m_controller;
+		private EnemyStats m_enemyStat;
+		private bool m_isActiveAI = false;
+
+
+		// Start is called before the first frame update
+		void Start()
+		{
+			m_controller = GetComponent<EnemyController>();
+			m_enemyStat = m_controller.EnemyStats;
+		}
+
+		// Update is called once per frame
+		void Update()
+		{
+			if (CheckIsAIActivate()) {
+				AttackToTarget();
+				DeactivateAI();
+			}
+		}
+
+		private void DeactivateAI()
+		{
+			m_controller.IsCurrentQueue = false;
+		}
+
+		private void AttackToTarget()
+		{
+			m_target.TakeDamage(m_enemyStat.Damage);
+		}
+
+		private bool CheckIsAIActivate()
+		{
+			return m_controller.IsCurrentQueue;
+		}
+	}
+}

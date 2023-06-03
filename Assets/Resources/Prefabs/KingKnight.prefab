@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8065785666082626971}
   - component: {fileID: 59106710992176161}
   - component: {fileID: 294597273920417204}
+  - component: {fileID: 3608891875136231933}
   m_Layer: 0
   m_Name: KingKnight
   m_TagString: Enemy
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyStats: {fileID: 11400000, guid: 08c3f1aae35834cc0adc8bb9aad985cf, type: 2}
+  m_isCurrentQueue: 0
+  m_textOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &3608891875136231933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948945851335386985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494c42c110bb14aa4bc54a9ceb98bb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

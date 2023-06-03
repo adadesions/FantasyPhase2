@@ -20,7 +20,7 @@ namespace Jrpg.BattleScene
 		private void InitPartyMembersName()
 		{
 			int counter = 0;
-			print(PlayerManager.Instance.NumberOfPlayers);
+
 			foreach (Transform memberPanel in m_partyPanel) {
 				if (!memberPanel.CompareTag("MemberPanel")) continue;
 				if (counter >= PlayerManager.Instance.NumberOfPlayers) return;
@@ -53,6 +53,11 @@ namespace Jrpg.BattleScene
 						break;
 				}
 			}
+		}
+
+		public void UpdatePlayerPanel()
+		{
+			InitPartyMembersName();
 		}
 	}
 }

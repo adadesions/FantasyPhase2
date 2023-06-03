@@ -64,5 +64,12 @@ namespace Jrpg.BattleScene
 			m_queueText.SetActive(true);
 			print(gameObject.name + " is pointing");
 		}
+
+		public void ReleasePointing()
+		{
+			m_isCurrentQueue = false;
+			m_queueText.SetActive(false);
+			print(gameObject.name + " is Release Pointing");
+		}
 	}
 }
