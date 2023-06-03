@@ -31,6 +31,7 @@ namespace Jrpg.BattleScene
 				AttackToTarget();
 				DeactivateAI();
 			}
+
 		}
 
 		private void DeactivateAI()
